@@ -6,7 +6,7 @@
 /*   By: mel-hamd <mel-hamd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:36:22 by mel-hamd          #+#    #+#             */
-/*   Updated: 2023/11/27 12:56:24 by mel-hamd         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:59:44 by mel-hamd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,21 @@ char	*ft_strdup(char *s)
 		return (NULL);
 	new[len] = '\0';
 	return (new);
+}
+
+char	*create_buff(void)
+{
+	char	*buff;
+	size_t	i;
+
+	i = 0;
+	buff = (char *)malloc((size_t)BUFFER_SIZE + 1);
+	if (!buff)
+		return (NULL);
+	while (i < (size_t)BUFFER_SIZE)
+		buff[i++] = '\0';
+	buff[i] = '\0';
+	return (buff);
 }
 
 char	*loading(char *str, int fd)
