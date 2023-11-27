@@ -6,7 +6,7 @@
 /*   By: mel-hamd <mel-hamd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:36:10 by mel-hamd          #+#    #+#             */
-/*   Updated: 2023/11/27 13:05:55 by mel-hamd         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:10:39 by mel-hamd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char	*ft_strdup(char *s);
 char	*create_buff(void);
 char	*ft_strjoin(char *str, char *buff, int n);
 int	get_len(char *str);
+char	*get_next(char *str);
 
 #endif

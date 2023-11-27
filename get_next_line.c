@@ -6,7 +6,7 @@
 /*   By: mel-hamd <mel-hamd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:36:15 by mel-hamd          #+#    #+#             */
-/*   Updated: 2023/11/27 13:05:40 by mel-hamd         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:10:25 by mel-hamd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,31 @@ int	get_len(char *str)
 	if (*str)
 		return (get_len(str + 1) + 1);
 	return (0);
+}
+
+char	*get_next(char *str)
+{
+	char	*next;
+	int		len;
+	int		i;
+
+	i = 0;
+	len = 0;
+	if (!str)
+		return (NULL);
+	while (*(str + len) && *(str + len) != '\n')
+		len++;
+	if (*(str + len) == '\n')
+		len++;
+	next = (char *)malloc(len + 1);
+	if (!next)
+		return (NULL);
+	while (i < len)
+	{
+		next[i] = str[i];
+		i++;
+	}
+	return (next[len] = '\0', next);
 }
 
 char	*get_next_line(int fd)
