@@ -6,7 +6,7 @@
 /*   By: mel-hamd <mel-hamd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:36:15 by mel-hamd          #+#    #+#             */
-/*   Updated: 2023/11/27 13:12:59 by mel-hamd         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:13:57 by mel-hamd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,19 @@ char	*get_next(char *str)
 		i++;
 	}
 	return (next[len] = '\0', next);
+}
+
+char	*fill(char *str, char *old)
+{
+	int	j;
+
+	j = 0;
+	while (*(old + j))
+	{
+		str[j] = *(old + j);
+		j++;
+	}
+	return (str[j] = '\0', str);
 }
 
 char	*ft_resize(char *str)
