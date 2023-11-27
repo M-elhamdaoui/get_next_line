@@ -6,11 +6,18 @@
 /*   By: mel-hamd <mel-hamd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:36:15 by mel-hamd          #+#    #+#             */
-/*   Updated: 2023/11/27 12:52:09 by mel-hamd         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:05:40 by mel-hamd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	get_len(char *str)
+{
+	if (*str)
+		return (get_len(str + 1) + 1);
+	return (0);
+}
 
 char	*get_next_line(int fd)
 {
