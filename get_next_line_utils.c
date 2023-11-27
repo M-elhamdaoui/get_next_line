@@ -6,7 +6,7 @@
 /*   By: mel-hamd <mel-hamd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:36:22 by mel-hamd          #+#    #+#             */
-/*   Updated: 2023/11/27 12:53:04 by mel-hamd         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:55:13 by mel-hamd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,32 @@ char	*ft_strchr(char *str, char c)
 		i++;
 	}
 	return (NULL);
+}
+
+char	*loading(char *str, int fd)
+{
+	int		n;
+	char	*buff;
+
+	n = 1;
+	if (!str)
+	{
+		str = ft_strdup("");
+		if (!str)
+			return (NULL);
+	}
+	buff = create_buff();
+	if (!buff)
+		return (free(str), NULL);
+	while (n > 0 && str && !ft_strchr(str, '\n'))
+	{
+		n = read(fd, buff, BUFFER_SIZE);
+		if (n == -1)
+			return (free(str), free(buff), NULL);
+		if (n > 0)
+			str = ft_strjoin(str, buff, n);
+	}
+	free(buff);
+	buff = NULL;
+	return (str);
 }
