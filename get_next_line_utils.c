@@ -6,7 +6,7 @@
 /*   By: mel-hamd <mel-hamd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:36:22 by mel-hamd          #+#    #+#             */
-/*   Updated: 2023/11/27 12:59:44 by mel-hamd         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:05:00 by mel-hamd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,32 @@ char	*create_buff(void)
 		buff[i++] = '\0';
 	buff[i] = '\0';
 	return (buff);
+}
+
+char	*ft_strjoin(char *str, char *buff, int n)
+{
+	int		s_len;
+	char	*new;
+	int		i;
+	int		j;
+
+	j = 0;
+	i = 0;
+	s_len = get_len(str);
+	new = (char *)malloc(s_len + n + 1);
+	if (!new || !buff)
+		return (free(str), str = NULL, NULL);
+	while (*(str + i))
+	{
+		new[i] = str[i];
+		i++;
+	}
+	while (j < n)
+	{
+		new[i + j] = buff[j];
+		j++;
+	}
+	return (free(str), new[i + j] = '\0', new);
 }
 
 char	*loading(char *str, int fd)
